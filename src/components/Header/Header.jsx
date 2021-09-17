@@ -23,7 +23,7 @@ const Header = () => {
 
           <Nav>
             <Nav.Link href="#home">My declarations</Nav.Link>
-            <NavDropdown title="Andrii Torkotiuk" id="basic-nav-dropdown">
+            <NavDropdown title="User123" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">My profile</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Logout</NavDropdown.Item>

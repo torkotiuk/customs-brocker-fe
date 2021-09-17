@@ -1,4 +1,5 @@
 import { Button, Container, Row } from 'react-bootstrap';
+import { AuthNav } from '../../components';
 import css from './LandingPage.module.css';
 import './LandingPage.css';
 
@@ -17,21 +18,7 @@ const LandingPage = () => {
             </div>
 
             <div className={css.buttonContainer}>
-              <a href="/login">
-                <Button size="lg" className="landingButton">
-                  Login
-                </Button>
-              </a>
-
-              <a href="/register">
-                <Button
-                  size="lg"
-                  className="landingButton"
-                  variant="outline-primary"
-                >
-                  Signup
-                </Button>
-              </a>
+              <AuthNav />
             </div>
           </div>
         </Row>
