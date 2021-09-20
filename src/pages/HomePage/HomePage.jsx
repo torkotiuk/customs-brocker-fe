@@ -1,10 +1,9 @@
-import { Header, Footer } from '../../components';
+import { Footer } from '../../components';
 import { LandingPage } from '../';
 
 const HomePage = () => {
   return (
     <>
-      <Header />
       <main>
         <LandingPage />
       </main>
