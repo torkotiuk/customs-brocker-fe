@@ -33,7 +33,7 @@ const RegisterPage = () => {
         setLoading(true);
 
         const { data } = await axios.post(
-          'https://customs-brocker.herokuapp.com/users/signup',
+          'https://customs-brocker.herokuapp.com/api/users/signup',
           { name, email, password, pic },
           config,
         );

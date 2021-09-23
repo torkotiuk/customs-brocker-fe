@@ -4,10 +4,7 @@ import { LandingPage } from '../';
 const HomePage = () => {
   return (
     <>
-      <main>
         <LandingPage />
-      </main>
-      <Footer />
     </>
   );
 };

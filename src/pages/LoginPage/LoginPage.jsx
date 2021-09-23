@@ -31,7 +31,7 @@ const LoginPage = () => {
       setLoading(true);
 
       const { data } = await axios.post(
-        'https://customs-brocker.herokuapp.com/users/login',
+        'https://customs-brocker.herokuapp.com/api/users/login',
         { email, password },
         config,
       );
