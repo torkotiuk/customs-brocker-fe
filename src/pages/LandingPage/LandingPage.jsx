@@ -1,4 +1,4 @@
-import { Button, Container, Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import { AuthNav } from '../../components';
 import css from './LandingPage.module.css';
 import './LandingPage.css';
