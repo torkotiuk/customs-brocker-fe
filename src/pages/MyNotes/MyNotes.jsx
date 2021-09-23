@@ -10,7 +10,7 @@ const MyNotes = () => {
 
   const fetchNotes = async () => {
     const { data } = await axios.get(
-      'https://customs-brocker.herokuapp.com/doc',
+      'https://customs-brocker.herokuapp.com/api/decl',
     );
     setNotes(data);
   };
