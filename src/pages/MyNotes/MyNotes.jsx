@@ -9,9 +9,13 @@ const MyNotes = () => {
   const [notes, setNotes] = useState([]);
 
   const fetchNotes = async () => {
+    const token = JSON.parse(localStorage.getItem('userInfo')).token
+    const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
     const { data } = await axios.get(
-      'https://customs-brocker.herokuapp.com/api/decl',
-    );
+      'https://customs-brocker.herokuapp.com/api/decl', config
+      );
     setNotes(data);
   };
 

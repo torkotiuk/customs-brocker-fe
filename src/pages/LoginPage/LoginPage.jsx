@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { ErrorMessage, Loading, MainScreen } from '../../components';
 import axios from 'axios';
+import { useEffect } from 'react';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -10,14 +11,14 @@ const LoginPage = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const history = useHistory();
+  
+  useEffect(() => {
+    const userInfo = localStorage.getItem('userInfo');
 
-  // useEffect(() => {
-  //   const userInfo = localStorage.getItem('userInfo');
-
-  //   if (userInfo) {
-  //     history.push('/mynotes');
-  //   }
-  // }, [history]);
+    if (userInfo) {
+      history.push('/mydeclarations');
+    }
+  }, [history]);
 
   // --- begin submitHandler --- //
   const submitHandler = async e => {
@@ -36,7 +37,6 @@ const LoginPage = () => {
         config,
       );
 
-      console.log(data);
       history.push('/mydeclarations');
       localStorage.setItem('userInfo', JSON.stringify(data));
       setLoading(false);

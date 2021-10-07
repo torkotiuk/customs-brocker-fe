@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { ErrorMessage, Loading, MainScreen } from '../../components';
+import { useEffect } from 'react';
 
 const RegisterPage = () => {
   const [email, setEmail] = useState('');
@@ -16,6 +17,9 @@ const RegisterPage = () => {
   const [picMessage, setPicMessage] = useState(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const history = useHistory();
+
 
   const submitHandler = async e => {
     e.preventDefault();
@@ -76,6 +80,14 @@ const RegisterPage = () => {
       return setPicMessage('Please Select an Image');
     }
   };
+
+  useEffect(() => {
+    const userInfo = localStorage.getItem('userInfo');
+
+    if (userInfo) {
+      history.push('/mydeclarations');
+    }
+  }, [history]);
 
   return (
     <MainScreen title="REGISTER">

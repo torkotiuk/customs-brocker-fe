@@ -1,6 +1,5 @@
 import { Route, Switch, Redirect } from 'react-router-dom';
 import routes from './routes';
-// import HomePage from './pages/HomePage';
 import { HomePage, LoginPage, MyNotes, RegisterPage } from './pages';
 import { Footer, Header } from './components';
 
@@ -14,7 +13,7 @@ const App = () => {
           <Route path="/login" component={LoginPage} />
           <Route path="/register" component={RegisterPage} />
           <Route path="/mydeclarations" component={MyNotes} />
-          <Redirect to="/" />
+          <Redirect to={routes.home} />
         </Switch>
       </main>
       <Footer />
