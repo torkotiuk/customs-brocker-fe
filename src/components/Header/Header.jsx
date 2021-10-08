@@ -9,8 +9,8 @@ import {
 import { Link, useHistory } from 'react-router-dom';
 import css from './Header.module.css';
 
-const Header = () => {
-const history = useHistory();
+const Header = ({ setSearch }) => {
+  const history = useHistory();
   return (
     <Navbar bg="primary" expand="lg" variant="dark">
       <Container>
@@ -20,7 +20,7 @@ const history = useHistory();
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className={css.NavBar}>
           <Nav className="m-auto">
-            <Form inline>
+            <Form inline onChange={e => setSearch(e.target.value)}>
               <FormControl type="text" placeholder="Search" />
             </Form>
           </Nav>
@@ -32,10 +32,14 @@ const history = useHistory();
             <NavDropdown title="User123" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">My profile</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item onClick={() => {
+              <NavDropdown.Item
+                onClick={() => {
                   localStorage.removeItem('userInfo');
                   history.push('/');
-                }}>Logout</NavDropdown.Item>
+                }}
+              >
+                Logout
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

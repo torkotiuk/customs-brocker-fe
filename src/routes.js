@@ -3,5 +3,6 @@ export default {
   home: '/',
   login: '/login',
   register: '/register',
-  declarations: '/mydeclarations'
+  declarations: '/mydeclarations',
+  createdeclaration: '/createdeclaration',
 };

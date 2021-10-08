@@ -14,7 +14,7 @@ const HomePage = () => {
   }, [history]);
   return (
     <>
-        <LandingPage />
+       <LandingPage />
     </>
   );
 };
