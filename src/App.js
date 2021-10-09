@@ -4,8 +4,9 @@ import {
   CreateDeclarationPage,
   HomePage,
   LoginPage,
-  MyNotes,
+  DeclarationsPage,
   RegisterPage,
+  UpdateDeclarationPage,
 } from './pages';
 import { Footer, Header } from './components';
 import { useState } from 'react';
@@ -23,11 +24,15 @@ const App = () => {
           <Route path="/register" component={RegisterPage} />
           <Route
             path="/mydeclarations"
-            component={() => <MyNotes search={search} />}
+            component={() => <DeclarationsPage search={search} />}
           />
           <Route
             path={routes.createdeclaration}
             component={CreateDeclarationPage}
+          />
+          <Route
+            path={routes.updatedeclaration}
+            component={UpdateDeclarationPage}
           />
           <Redirect to={routes.home} />
         </Switch>

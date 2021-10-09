@@ -5,4 +5,5 @@ export default {
   register: '/register',
   declarations: '/mydeclarations',
   createdeclaration: '/createdeclaration',
+  updatedeclaration: '/declaration/:id',
 };

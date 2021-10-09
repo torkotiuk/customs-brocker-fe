@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Button, Card, Badge, Accordion } from 'react-bootstrap';
 import { MyNotesTitle } from './MyNotes.style';
 import routes from '../../routes';
+import api from '../../api/api';
 
 const MyNotes = ({ search }) => {
   const [notes, setNotes] = useState([]);
@@ -23,11 +24,11 @@ const MyNotes = ({ search }) => {
 
   useEffect(() => {
     fetchNotes();
-  }, []);
+  }, [notes]);
 
   const deleteHandler = id => {
     if (window.confirm('Are you sure you want to delete')) {
-      //
+      api.removeDecl(id);
     }
   };
   return (
@@ -55,7 +56,7 @@ const MyNotes = ({ search }) => {
                   </Accordion.Toggle>
                 </span>
                 <div>
-                  <Button href={`/note/${note._id}`}>Edit</Button>
+                  <Button href={`/declaration/${note._id}`}>Edit</Button>
                   <Button
                     variant="danger"
                     className="mx-2"
