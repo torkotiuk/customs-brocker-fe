@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
 import routes from '../../routes';
 import { MainScreen } from '../../components';
-import axios from 'axios';
+import api from '../../api';
 
 const CreateDeclarationPage = ({ history }) => {
   const [declNumber, setDeclNumber] = useState('');
@@ -19,31 +19,6 @@ const CreateDeclarationPage = ({ history }) => {
     setAmount('');
   };
 
-  const addDeclaration = async (
-    declNumber,
-    declDateFrom,
-    declDateTo,
-    proformNumber,
-    ammount,
-  ) => {
-    const token = JSON.parse(localStorage.getItem('userInfo')).token;
-
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-    };
-
-    const { data } = await axios.post(
-      `https://customs-brocker.herokuapp.com/api/decl`,
-      { declNumber, declDateFrom, declDateTo, proformNumber, ammount },
-      config,
-    );
-
-    return data;
-  };
-
   const submitHandler = e => {
     e.preventDefault();
     if (
@@ -55,14 +30,13 @@ const CreateDeclarationPage = ({ history }) => {
     )
       return;
 
-    addDeclaration(
+    api.decl.addDeclaration(
       declNumber,
       declDateFrom,
       declDateTo,
       proformNumber,
       ammount,
     );
-    // dispatch(createNoteAction(title, content, category));
 
     resetHandler();
     history.push(routes.declarations);
@@ -84,6 +58,7 @@ const CreateDeclarationPage = ({ history }) => {
                 value={declNumber}
                 placeholder="Enter the declaration number"
                 onChange={e => setDeclNumber(e.target.value)}
+                required
               />
             </Form.Group>
 
@@ -96,6 +71,7 @@ const CreateDeclarationPage = ({ history }) => {
                 value={declDateFrom}
                 placeholder="Enter the Category"
                 onChange={e => setDateFrom(e.target.value)}
+                required
               />
             </Form.Group>
 
@@ -105,6 +81,7 @@ const CreateDeclarationPage = ({ history }) => {
                 type="date"
                 value={declDateTo}
                 onChange={e => setDateTo(e.target.value)}
+                required
               />
             </Form.Group>
             {/*  */}
@@ -115,6 +92,7 @@ const CreateDeclarationPage = ({ history }) => {
                 value={proformNumber}
                 placeholder="Enter a proformNumber"
                 onChange={e => setProformNumber(e.target.value)}
+                required
               />
             </Form.Group>
             <Form.Group controlId="content">
@@ -124,6 +102,7 @@ const CreateDeclarationPage = ({ history }) => {
                 value={ammount}
                 placeholder="Enter an amount"
                 onChange={e => setAmount(e.target.value)}
+                required
               />
             </Form.Group>
             {/* {loading && <Loading size={50} />} */}

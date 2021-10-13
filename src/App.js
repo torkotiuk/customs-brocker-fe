@@ -8,7 +8,7 @@ import {
   RegisterPage,
   UpdateDeclarationPage,
 } from './pages';
-import { Footer, Header } from './components';
+import { Articles, Footer, Header } from './components';
 import { useState } from 'react';
 
 const App = () => {
@@ -26,6 +26,7 @@ const App = () => {
             path="/mydeclarations"
             component={() => <DeclarationsPage search={search} />}
           />
+          <Route path="/currentarticle" component={() => <Articles />} />
           <Route
             path={routes.createdeclaration}
             component={CreateDeclarationPage}

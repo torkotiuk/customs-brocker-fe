@@ -11,7 +11,7 @@ const LoginPage = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const history = useHistory();
-  
+
   useEffect(() => {
     const userInfo = localStorage.getItem('userInfo');
 
@@ -41,7 +41,7 @@ const LoginPage = () => {
       localStorage.setItem('userInfo', JSON.stringify(data));
       setLoading(false);
     } catch (error) {
-      setError(error.response.data.message);
+      setError(error.response.data.error);
       setLoading(false);
     }
   };

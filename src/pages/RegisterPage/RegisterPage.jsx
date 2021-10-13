@@ -20,7 +20,6 @@ const RegisterPage = () => {
 
   const history = useHistory();
 
-
   const submitHandler = async e => {
     e.preventDefault();
     console.log(email);
@@ -45,7 +44,7 @@ const RegisterPage = () => {
         localStorage.setItem('userInfo', JSON.stringify(data));
         setLoading(false);
       } catch (error) {
-        setError(error.response.data.message);
+        setError(error.response.data.error);
         setLoading(false);
       }
       // dispatch();
