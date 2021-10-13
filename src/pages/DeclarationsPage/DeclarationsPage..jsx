@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { MainScreen } from '../../components';
 import { Link, useHistory } from 'react-router-dom';
-import { Button, Card, Accordion } from 'react-bootstrap';
+import { Button, Card, Accordion, Badge } from 'react-bootstrap';
 import { MyNotesTitle } from './MyNotes.style';
 import routes from '../../routes';
 import api from '../../api';
