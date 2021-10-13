@@ -90,7 +90,7 @@ const DeclarationPage = ({ search }) => {
 
               <Accordion.Collapse eventKey="0">
                 <Card.Body>
-                  {/* {articles.map(article => {
+                  {articles.map(article => {
                     console.log('note id>>>>', note.article);
                     console.log('article._id', article._id);
                     if (article._id === note.article) {
@@ -100,7 +100,7 @@ const DeclarationPage = ({ search }) => {
                         </h4>
                       );
                     }
-                  })} */}
+                  })}
 
                   <blockquote className="blockquote mb-0">
                     {note.ammount} EUR{' '}
